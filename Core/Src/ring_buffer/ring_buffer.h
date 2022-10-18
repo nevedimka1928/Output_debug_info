@@ -29,8 +29,8 @@
 typedef struct
 {
   int16_t Length;    /*!< size of Ring Buffer */
-  uint32_t* Head;    /*!< pointer to array start */
-  uint32_t* InputItem;    /*!< pointer to input item */
+  uint8_t* Head;    /*!< pointer to array start */
+  uint8_t* InputItem;    /*!< pointer to input item */
   uint16_t NumberOfItems;      /*!< number of items */
 } RingBuffer_t;
 
@@ -42,7 +42,7 @@ typedef struct
 
 /* Exported functions prototypes ---------------------------------------------*/
 StatusFunctionExecution_t initializeRingBuffer(UartBuffer_t, RingBuffer_t*);
-
+StatusFunctionExecution_t decreaseNumberItems(RingBuffer_t*, uint16_t);
 
 /* Private defines -----------------------------------------------------------*/
 
