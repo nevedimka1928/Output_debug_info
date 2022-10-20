@@ -17,7 +17,8 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-
+#include <stdint.h>
+#include <stddef.h>
 
 /* Private includes ----------------------------------------------------------*/
 
@@ -35,13 +36,13 @@ typedef enum
 } StatusFunctionExecution_t;
 
 /**
-  * @brief  Buffer Type
+  * @brief  Buffer TX/RX Type
   */
 typedef enum
 {
     RX_BUFFER = 0U,
     TX_BUFFER = 1U
-} UartBuffer_t;
+} InterfaceBuffer_t;
 
 /* Exported constants --------------------------------------------------------*/
 
