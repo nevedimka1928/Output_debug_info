@@ -41,6 +41,9 @@ typedef struct
 StatusFunctionExecution_t initializeRingBuffer(InterfaceBuffer_t);
 StatusFunctionExecution_t decreaseNumberItems(RingBuffer_t*, uint16_t);
 
+RingBuffer_t* getRxRingBuffer(void);
+RingBuffer_t* getTxRingBuffer(void);
+
 /* Private defines -----------------------------------------------------------*/
 
 

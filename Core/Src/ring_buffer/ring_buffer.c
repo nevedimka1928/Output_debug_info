@@ -43,6 +43,26 @@ static RingBuffer_t TxRingBuffer;
 /* External functions --------------------------------------------------------*/
 
 /**
+  * @brief Get of TX Ring Buffer Structure
+  * @param None
+  * @retval Pointer to TX RB Structure
+  */
+RingBuffer_t* getTxRingBuffer(void)
+{
+	return &TxRingBuffer;
+}
+
+/**
+  * @brief Get of RX Ring Buffer Structure
+  * @param None
+  * @retval Pointer to RX RB Structure
+  */
+RingBuffer_t* getRxRingBuffer(void)
+{
+	return &RxRingBuffer;
+}
+
+/**
   * @brief Initialization Function of Ring Buffer Structure
   * @param Type: type of UART
   * @param RingBuffer: pointer to ring buffer structure
