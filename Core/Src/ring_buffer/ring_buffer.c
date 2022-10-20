@@ -26,9 +26,11 @@
 
 
 /* Private variables ---------------------------------------------------------*/
-static uint8_t RxRingBuffer[UART_RX_BUFFER_SIZE];
-static uint8_t TxRingBuffer[UART_TX_BUFFER_SIZE];
+static uint8_t RxArray[UART_RX_BUFFER_SIZE];
+static uint8_t TxArray[UART_TX_BUFFER_SIZE];
 
+static RingBuffer_t RxRingBuffer;
+static RingBuffer_t TxRingBuffer;
 /* Private function prototypes -----------------------------------------------*/
 
 
@@ -46,26 +48,22 @@ static uint8_t TxRingBuffer[UART_TX_BUFFER_SIZE];
   * @param RingBuffer: pointer to ring buffer structure
   * @retval Status RB initialization
   */
-StatusFunctionExecution_t initializeRingBuffer(UartBuffer_t Type, RingBuffer_t* NewRingBuffer)
+StatusFunctionExecution_t initializeRingBuffer(InterfaceBuffer_t Type)
 {
-	if((UART_RX_BUFFER_SIZE > MAX_SIZE_DMA_BUFFER) || (UART_RX_BUFFER_SIZE < 1) || (NewRingBuffer == NULL))
-	{
-		return INVALID_PARAMS;
-	}
 
 	if (Type == RX_BUFFER)
 	{
-		NewRingBuffer->Length = UART_RX_BUFFER_SIZE;
-		NewRingBuffer->Head = RxRingBuffer;
-		NewRingBuffer->InputItem = RxRingBuffer;
-		NewRingBuffer->NumberOfItems = 0;
+		RxRingBuffer.Length = UART_RX_BUFFER_SIZE;
+		RxRingBuffer.Head = RxArray;
+		RxRingBuffer.InputItem = RxArray;
+		RxRingBuffer.NumberOfItems = 0;
 	}
 	else if (Type == TX_BUFFER)
 	{
-		NewRingBuffer->Length = UART_TX_BUFFER_SIZE;
-		NewRingBuffer->Head = TxRingBuffer;
-		NewRingBuffer->InputItem = TxRingBuffer;
-		NewRingBuffer->NumberOfItems = 0;
+		TxRingBuffer.Length = UART_TX_BUFFER_SIZE;
+		TxRingBuffer.Head = TxArray;
+		TxRingBuffer.InputItem = TxArray;
+		TxRingBuffer.NumberOfItems = 0;
 	}
 	else
 	{

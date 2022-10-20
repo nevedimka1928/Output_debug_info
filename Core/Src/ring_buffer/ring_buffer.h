@@ -16,9 +16,6 @@
 
 
 /* Includes ------------------------------------------------------------------*/
-#include <stdint.h>
-#include <stddef.h>
-
 #include "common.h"
 
 /* Exported types ------------------------------------------------------------*/
@@ -41,7 +38,7 @@ typedef struct
 
 
 /* Exported functions prototypes ---------------------------------------------*/
-StatusFunctionExecution_t initializeRingBuffer(UartBuffer_t, RingBuffer_t*);
+StatusFunctionExecution_t initializeRingBuffer(InterfaceBuffer_t);
 StatusFunctionExecution_t decreaseNumberItems(RingBuffer_t*, uint16_t);
 
 /* Private defines -----------------------------------------------------------*/
